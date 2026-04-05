@@ -194,7 +194,7 @@ Configure no arquivo `.env.local`:
 | `NEXT_PUBLIC_SUPABASE_URL` | ✅ | URL do projeto Supabase |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | ✅ | Chave anônima pública do Supabase |
 | `SUPABASE_SERVICE_ROLE_KEY` | ✅ | Chave de serviço secreta (acesso admin ao banco) |
-| `NEXT_PUBLIC_APP_URL` | ✅ | URL pública da aplicação (ex: `http://localhost:9002`) |
+| `NEXT_PUBLIC_APP_URL` | ✅ | URL pública da aplicação (ex: `http://localhost:9002` em dev, `https://admin.seudominio.com` em produção) |
 | `NODE_ENV` | — | `development` ou `production` |
 
 > ⚠️ **Nunca** commite o `.env.local` com credenciais reais.
@@ -761,7 +761,7 @@ dismiss(toastId)
 
 **Limite configurável:** `TOAST_LIMIT = 1` (máximo de 1 toast visível por vez). Altere para mostrar mais.
 
-**Duração padrão:** `TOAST_REMOVE_DELAY = 1000000ms`. Altere para controlar quanto tempo o toast fica visível.
+**Duração padrão:** `TOAST_REMOVE_DELAY = 1000000ms` (~16 minutos). Esse valor alto é intencional — faz com que o toast permaneça visível até ser fechado manualmente. Para remover automaticamente após alguns segundos, altere para, por exemplo, `5000` (5 segundos).
 
 ### `useMobile()` (`src/hooks/use-mobile.tsx`)
 
